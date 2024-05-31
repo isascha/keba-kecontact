@@ -127,6 +127,11 @@ class ChargingStationInfo:
         return f"{self.manufacturer} {self.model} ({self.device_id} - {self.sw_version}) at {self.host}"
 
 
+
+
+
+
+# --------------------------------------------------------------------------------------------------------------
 class ChargingStation:
     """This class represents a KEBA charging station (charging station)"""
 
@@ -196,7 +201,7 @@ class ChargingStation:
 
     async def datagram_received(self, data) -> None:
         """Handle received datagram."""
-        _LOGGER.info("%s datagram received", self.device_info)
+        _LOGGER.info("%s ISASCHA datagram received", self.device_info)
         _LOGGER.debug("Data: %s", data.rstrip())
 
         if "TCH-OK :done" in data:
