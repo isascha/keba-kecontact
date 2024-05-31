@@ -45,6 +45,9 @@ class ChargingStationInfo:
         self.meter_integrated = False
         self.data_logger_integrated = False
 
+        # wo wird das ausgegeben
+        _LOGGER.warning("isascha")
+
         if report_1_json[ID] != "1":
             _LOGGER.warning(
                 "Device info extraction for new charging station not possible. Got wrong report response."
