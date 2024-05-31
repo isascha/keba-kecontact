@@ -77,25 +77,6 @@ class ChargingStationInfo:
                     self.meter_integrated = True
                     self.data_logger_integrated = True
 
-                elif "P20" in product:
-                    self.model = "P20"
-                    self.meter_integrated = False
-                    self.data_logger_integrated = False
-
-            elif "BMW" in product:
-                self.manufacturer = "BMW"
-                if "BMW-10-EC2405B2-E1R" in product:
-                    self.model = "Wallbox Connect"
-                elif "BMW-10-EC240522-E1R" in product:
-                    self.model = "Wallbox Plus"
-
-                # Add available services
-                self.services.append(KebaService.SET_ENERGY)
-                self.services.append(KebaService.START)
-                self.services.append(KebaService.STOP)
-
-                self.meter_integrated = True
-                self.data_logger_integrated = True
             else:
                 _LOGGER.warning(
                     "Not able to identify the model type. Please report to https://github.com/dannerph/keba-kecontact/issues"
