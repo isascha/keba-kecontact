@@ -252,7 +252,7 @@ class ChargingStation:
         # Correct ten-thousands, precision 2
         ten_thousands = json_rcv.keys() & ["Setenergy", "E pres", "E total", "E start"]
         for k in ten_thousands:
-            json_rcv[k] = round(json_rcv[k] / 10000.0, 2)
+            json_rcv[k] = round(json_rcv[k] / 10000.0, 3)
 
         # Extract plug state
         if "Plug" in json_rcv:
@@ -281,7 +281,7 @@ class ChargingStation:
             json_rcv["FS_on"] = json_rcv["Tmo FS"] > 0
 
         if "P" in json_rcv:
-            json_rcv["P"] = round(json_rcv["P"] / 1000000.0, 2)
+            json_rcv["P"] = round(json_rcv["P"] / 1000000.0, 3)
 
         # Cleanup invalid values
         if "Curr HW" in json_rcv and json_rcv["Curr HW"] == 0:
